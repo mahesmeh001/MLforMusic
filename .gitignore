@@ -1,0 +1,6 @@
+# created by virtualenv automatically
+/.venv
+.venv/bin
+assignment1/data
+homework2/data
+
