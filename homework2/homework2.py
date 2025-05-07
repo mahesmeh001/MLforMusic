@@ -5,8 +5,10 @@
 # 
 # The goal of this assignment is experiment with classification pipelines (in this case, for instrument classification) using spectrograms.
 
-# In[41]:
+# In[1]:
 
+
+# from torch.testing._internal.common_fsdp import MLP
 
 # Set this yourself depending where you put the files
 dataroot = "."
@@ -14,7 +16,7 @@ dataroot = "."
 dataroot = "."
 
 
-# In[42]:
+# In[2]:
 
 
 # !pip install librosa
@@ -23,7 +25,7 @@ dataroot = "."
 # !pip install numpy
 
 
-# In[43]:
+# In[3]:
 
 
 import torch
@@ -37,13 +39,13 @@ import random
 import glob
 
 
-# In[44]:
+# In[4]:
 
 
 torch.use_deterministic_algorithms(True) # Try to make things less random, though not required
 
 
-# In[45]:
+# In[5]:
 
 
 audio_paths = glob.glob(dataroot + "/nsynth_subset/*.wav")
@@ -51,20 +53,20 @@ random.seed(0)
 random.shuffle(audio_paths)
 
 
-# In[46]:
+# In[6]:
 
 
 if not len(audio_paths):
     print("You probably need to set the dataroot folder correctly")
 
 
-# In[47]:
+# In[7]:
 
 
 print(len(audio_paths))
 
 
-# In[48]:
+# In[8]:
 
 
 SAMPLE_RATE = 8000 # Very low sample rate, just so things run quickly
@@ -98,7 +100,7 @@ NUM_CLASSES = len(INSTRUMENT_MAP)
 # **Outputs**
 # - `label`: A integer that represents the label of the path (hint: look at the filename and make use of `INSTRUMENT_MAP`)
 
-# In[49]:
+# In[9]:
 
 
 def extract_waveform(path):
@@ -107,7 +109,7 @@ def extract_waveform(path):
     return wave 
 
 
-# In[50]:
+# In[10]:
 
 
 def extract_label(path):
@@ -118,7 +120,7 @@ def extract_label(path):
     return INSTRUMENT_MAP[path[2].split('_')[0]]
 
 
-# In[51]:
+# In[11]:
 
 
 waveforms = [extract_waveform(p) for p in audio_paths]
@@ -127,13 +129,13 @@ labels = [extract_label(p) for p in audio_paths]
 
 # A few simple classifiers are provided. You don't need to modify these (though the autograder will *probably* work if you'd like to experiment with architectural changes)
 
-# In[52]:
+# In[12]:
 
 
 print(labels[:5])
 
 
-# In[53]:
+# In[13]:
 
 
 class MLPClassifier(nn.Module):
@@ -151,7 +153,7 @@ class MLPClassifier(nn.Module):
         return x
 
 
-# In[54]:
+# In[14]:
 
 
 class SimpleCNN(nn.Module):
@@ -196,7 +198,7 @@ class SimpleCNN(nn.Module):
 # - Compute 13 mean and 13 standard deviation values
 # - Concatenate them together
 
-# In[55]:
+# In[15]:
 
 
 def extract_mfcc(w):
@@ -231,7 +233,7 @@ def extract_mfcc(w):
 # - apply STFT to the given waveform
 # - square the absolute values of the complex numbers from the STFT
 
-# In[56]:
+# In[16]:
 
 
 def extract_spec(w):
@@ -262,7 +264,7 @@ def extract_spec(w):
 # - convert them to decibel units with `librosa.power_to_db`
 # - normalize values to be in the range 0 to 1
 
-# In[57]:
+# In[17]:
 
 
 def extract_mel(w, n_mels = 128, hop_length = 512):
@@ -292,15 +294,15 @@ def extract_mel(w, n_mels = 128, hop_length = 512):
 # **Process**
 # - generate constant-Q transform with `librosa.cqt`; this one will need a higher sample rate (use 16000) to work
 
-# In[58]:
+# In[18]:
 
 
 def extract_q(w):
     # Your code here
     result = librosa.cqt(y=w, sr=16000)
-    return torch.FloatTensor(result)
+    result = librosa.amplitude_to_db(np.abs(result))
 
-    # return torch.FloatTensor(result)
+    return torch.FloatTensor(result)
 
 
 # 6. Pitch shift
@@ -317,7 +319,7 @@ def extract_q(w):
 # **Process**
 # - use `librosa.effects.pitch_shift`
 
-# In[59]:
+# In[19]:
 
 
 def pitch_shift(w, n):
@@ -325,7 +327,7 @@ def pitch_shift(w, n):
     return librosa.effects.pitch_shift(y=w, sr = SAMPLE_RATE, n_steps=n)
 
 
-# In[60]:
+# In[20]:
 
 
 # Code below augments the datasets
@@ -344,50 +346,119 @@ for w,y in zip(waveforms,labels):
 # 
 # By making data augmentations, or modifying the model architecture, build a model with test accuracy > 0.93
 
-# In[61]:
+# In[21]:
 
 
 INSTRUMENT_MAP_7 = {'guitar_acoustic': 0, 'guitar_electronic': 1, 'vocal_acoustic': 2, 'vocal_synthetic': 3}
 
 
-# In[62]:
+# In[22]:
 
 
 NUM_CLASSES_7 = 4
 
 
-# In[63]:
+# In[28]:
 
+
+# INSTRUMENT_MAP = {
+#     'bass': 0, 'brass': 1, 'flute': 2, 'guitar': 3,
+#     'keyboard': 4, 'mallet': 5, 'organ': 6, 'reed': 7,
+#     'string': 8, 'synth_lead': 9, 'vocal': 10
+# }
 
 def extract_label_7(path):
+    """Returns based on instrument map (guitar : 0), (vocal:1)"""
     # Your code here
-    pass
+    path = path.split('/')
+    path = path[2].split('_')
+    # print(path)
+    if path[0] == 'guitar':
+        if path[1] == 'acoustic':
+            return 0
+        else:
+            return 1
+    elif path[0] == 'vocal':
+        if path[1] == 'acoustic':
+            return 2
+        else:
+            return 3
+    
+    return INSTRUMENT_MAP_7[path[2].split('_')[0]]
 
 
-# In[64]:
+# In[41]:
 
 
 # Select which feature function to use.
 # Can be one of the existing ones (e.g. extract_mfcc), or you can write a new one.
-feature_func_7 = None
+feature_func_7 = extract_mfcc #MLP
+# feature_func_7 = extract_q 
 
 
-# In[65]:
+# In[35]:
 
 
 labels_7 = [extract_label_7(p) for p in audio_paths]
 
 
-# In[66]:
+# In[36]:
 
 
 # Select which model to use.
 # Can use an existing model (e.g. MLPClassifier) or modify it.
 # Note that you'll need to copy and (slightly) modify the existing class to handle 4 labels.
-# model_7 = MLPClassifier_4classes()
+
+class MLPClassifier_4classes(nn.Module):
+    def __init__(self):
+        super(MLPClassifier_4classes, self).__init__()
+        self.fc1 = nn.Linear(2 * N_MFCC, 64)
+        self.fc2 = nn.Linear(64, 32)
+        self.fc3 = nn.Linear(32, NUM_CLASSES_7)
+        self.relu = nn.ReLU()
+
+    def forward(self, x):
+        x = self.relu(self.fc1(x))
+        x = self.relu(self.fc2(x))
+        x = self.fc3(x)
+        return x
 
 
-# In[ ]:
+
+class SimpleCNN_4classes(nn.Module):
+    def __init__(self):
+        super(SimpleCNN_4classes, self).__init__()
+        self.conv1 = nn.Conv2d(1, 16, kernel_size=3, padding=1)
+        self.bn1 = nn.BatchNorm2d(16)
+        self.pool1 = nn.MaxPool2d(kernel_size=2, stride=2)
+
+        self.conv2 = nn.Conv2d(16, 32, kernel_size=3, padding=1)
+        self.bn2 = nn.BatchNorm2d(32)
+        self.pool2 = nn.MaxPool2d(kernel_size=2, stride=2)
+
+        self.conv3 = nn.Conv2d(32, 64, kernel_size=3, padding=1)
+        self.bn3 = nn.BatchNorm2d(64)
+        self.pool3 = nn.AdaptiveAvgPool2d((1, 1))
+
+        self.fc = nn.Linear(64, NUM_CLASSES_7)
+
+    def forward(self, x):
+        x = x.unsqueeze(1)
+        x = self.pool1(nnF.relu(self.bn1(self.conv1(x))))
+        x = self.pool2(nnF.relu(self.bn2(self.conv2(x))))
+        x = self.pool3(nnF.relu(self.bn3(self.conv3(x))))
+        x = x.view(x.size(0), -1)
+        x = self.fc(x)
+        return x
+
+
+# In[37]:
+
+
+model_7 = MLPClassifier_4classes()
+
+
+# In[40]:
 
 
 # get_ipython().system('jupyter nbconvert homework2.ipynb --to python')

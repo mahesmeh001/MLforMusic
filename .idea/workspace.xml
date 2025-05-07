@@ -5,19 +5,29 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="408a4a52-9956-4843-902f-2341a8acd1ef" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/homework2/homework2.ipynb" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/homework2/hw2-directions.pdf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/homework2/pipeline.ipynb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assignment1/task1_sol1.ipynb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assignment1/task1_sol2.ipynb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/homework1/homework1.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/homework1/homework1.ipynb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/homework1/test_examples.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/homework1/test_examples.ipynb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/homework2/workbook2.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/homework2/workbook2.ipynb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assignment1/baselines.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/assignment1/baselines.ipynb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/homework2/best_augmented_model.weights" beforeDir="false" afterPath="$PROJECT_DIR$/homework2/best_augmented_model.weights" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/homework2/best_mlp_model.weights" beforeDir="false" afterPath="$PROJECT_DIR$/homework2/best_mlp_model.weights" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/homework2/best_q_model.weights" beforeDir="false" afterPath="$PROJECT_DIR$/homework2/best_q_model.weights" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/homework2/best_spec_model.weights" beforeDir="false" afterPath="$PROJECT_DIR$/homework2/best_spec_model.weights" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/homework2/homework2.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/homework2/homework2.ipynb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/homework2/homework2.py" beforeDir="false" afterPath="$PROJECT_DIR$/homework2/homework2.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/homework2/pipeline.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/homework2/pipeline.ipynb" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Jupyter Notebook" />
+      </list>
+    </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -41,15 +51,20 @@
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "git-widget-placeholder": "main",
+    "last_opened_file_path": "/Users/mehul/Documents/UCSD Classes/ML for Music/MLforMusic/assignment1",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
+    "settings.editor.selected.configurable": "configurable.group.editor",
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/assignment1" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/homework2" />
       <recent name="$PROJECT_DIR$" />
@@ -155,7 +170,10 @@
       <workItem from="1743900056937" duration="854000" />
       <workItem from="1744064867902" duration="10305000" />
       <workItem from="1744762606506" duration="883000" />
-      <workItem from="1745363541093" duration="5927000" />
+      <workItem from="1745363541093" duration="5973000" />
+      <workItem from="1745533211055" duration="3736000" />
+      <workItem from="1745706559755" duration="938000" />
+      <workItem from="1746571658843" duration="17485000" />
     </task>
     <servers />
   </component>
