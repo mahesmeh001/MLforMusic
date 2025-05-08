@@ -5,17 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="408a4a52-9956-4843-902f-2341a8acd1ef" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/assignment1/task1_sol1.ipynb" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assignment1/task1_sol2.ipynb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assignment1/baselines.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/assignment1/baselines.ipynb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/homework2/best_augmented_model.weights" beforeDir="false" afterPath="$PROJECT_DIR$/homework2/best_augmented_model.weights" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/homework2/best_mlp_model.weights" beforeDir="false" afterPath="$PROJECT_DIR$/homework2/best_mlp_model.weights" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/homework2/best_q_model.weights" beforeDir="false" afterPath="$PROJECT_DIR$/homework2/best_q_model.weights" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/homework2/best_spec_model.weights" beforeDir="false" afterPath="$PROJECT_DIR$/homework2/best_spec_model.weights" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/homework2/homework2.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/homework2/homework2.ipynb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/homework2/homework2.py" beforeDir="false" afterPath="$PROJECT_DIR$/homework2/homework2.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/homework2/pipeline.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/homework2/pipeline.ipynb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assignment1/task1_sol2.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/assignment1/task1_sol2.ipynb" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -173,7 +164,7 @@
       <workItem from="1745363541093" duration="5973000" />
       <workItem from="1745533211055" duration="3736000" />
       <workItem from="1745706559755" duration="938000" />
-      <workItem from="1746571658843" duration="17485000" />
+      <workItem from="1746571658843" duration="22310000" />
     </task>
     <servers />
   </component>
