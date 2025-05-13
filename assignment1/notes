@@ -1,0 +1,33 @@
+task 1: predict artists from music
+
+
+MLP
+features: mfcc, spec, extra
+
+- overfit on small data first
+- tried attention mechanism
+- LR scheduler / Early stopping
+- batch parallelization
+- wanted best sol w/ validation, not necessarily the model that converged to. opted for a small LR decay for a more shaky solution
+- tend to overfit train. tried to get it to match validation with more rigorous regularization strategies
+- graph to visualize
+CNN
+- only spec or mfcc (channels are diff)...
+- did not generalize well. probably the music itself alone is not enough to make a classification well
+
+
+BOTH:
+- LR Scheduling (small decay bc we wanted bouncier updates)
+- Early stopping on validation acc (looser patience)
+- batch parallelization
+
+
+
+Future:
+- CNN: make features more robust? somehow do mfcc + spec (could be 2 diff CNNs per feature?)
+-> could do some kind of ensemble method? needs confidence tho to guess well. could be like binary yes or no for each composer for CNN and then a sigmoid for the MLP and whatever is max get selected?
+
+
+
+
+task 2: predict
