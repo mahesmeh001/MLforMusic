@@ -287,16 +287,16 @@ def get_stats(piano_path_list, drum_path_list):
             "average_drum_beat_num":np.average(drum_beat_nums)}
 
 
-# 7. Implement a few simple feature functions, to compute the lowest and highest MIDI note numbers in a file, and the set of unique notes in a file
+# 7. Implement a few simple feature functions, to compute the lowest and highest MIDI note numbers in a file, and the set of unique writeup.txt in a file
 # 
 # `get_lowest_pitch()` and `get_highest_pitch()`
 # functions to find the lowest and highest MIDI note numbers in a file
 # 
 # - **Input**: `file_path`, a string (e.g., `"./piano/0000.mid"`)
-# - **Output**: An integer (0–127) or `None` if no notes exist
+# - **Output**: An integer (0–127) or `None` if no writeup.txt exist
 # - **Details**:
 #   - Use `MidiFile(file_path)` and scan all tracks
-#   - Check `msg.type == 'note_on'` and `msg.velocity > 0` for active notes
+#   - Check `msg.type == 'note_on'` and `msg.velocity > 0` for active writeup.txt
 #   - Return the minimum (`get_lowest_pitch`) or maximum (`get_highest_pitch`) `msg.note`
 # 
 # `get_unique_pitch_num()`
@@ -307,7 +307,7 @@ def get_stats(piano_path_list, drum_path_list):
 # - **Details**:
 #   - Collect `msg.note` from all `'note_on'` events with `msg.velocity > 0` into a set
 #   - Return the set’s length
-# - **Example**: For notes `["C4", "C4", "G4", "G4", "A4", "A4", "G4"]`, output is 3 (unique: C4, G4, A4)
+# - **Example**: For writeup.txt `["C4", "C4", "G4", "G4", "A4", "A4", "G4"]`, output is 3 (unique: C4, G4, A4)
 
 # In[164]:
 
@@ -315,7 +315,7 @@ def get_stats(piano_path_list, drum_path_list):
 from mido import MidiFile
 
 def get_lowest_pitch(file_path):
-    # Initialize lowest_note to a high value (since MIDI notes are from 0 to 127)
+    # Initialize lowest_note to a high value (since MIDI writeup.txt are from 0 to 127)
     lowest_note = 128  
     mid = MidiFile(file_path)
     
@@ -329,7 +329,7 @@ def get_lowest_pitch(file_path):
     return lowest_note if lowest_note != 128 else None
 
 def get_highest_pitch(file_path):
-    # Initialize highest_note to a low value (since MIDI notes are from 0 to 127)
+    # Initialize highest_note to a low value (since MIDI writeup.txt are from 0 to 127)
     highest_note = -1  
     mid = MidiFile(file_path)
     
@@ -360,10 +360,10 @@ def get_unique_pitch_num(file_path):
 # a function to return the average MIDI note number from a file
 # 
 # - **Input**: `file_path`, a string
-# - **Output**: A float, the average value of MIDI notes in the file
+# - **Output**: A float, the average value of MIDI writeup.txt in the file
 # - **Details**:
 #   - Collect `msg.note` from all `'note_on'` events with `msg.velocity > 0` into a set
-# - **Example**: For notes `[51, 52, 53]`, output is `52`
+# - **Example**: For writeup.txt `[51, 52, 53]`, output is `52`
 
 # In[165]:
 

@@ -687,7 +687,7 @@ def beat_trigram_perplexity(midi_file):
     return perplexity_Q9
 
 
-# 10. Use the model from Q5 to generate N notes, and the model from Q8 to generate beat lengths for each note. Save the generated music as a midi file (see code from workbook1) as q10.mid. Remember to reset the beat position to 0 when reaching the end of a bar.
+# 10. Use the model from Q5 to generate N writeup.txt, and the model from Q8 to generate beat lengths for each note. Save the generated music as a midi file (see code from workbook1) as q10.mid. Remember to reset the beat position to 0 when reaching the end of a bar.
 # 
 # `music_generate`
 # - **Input**: target length, e.g. 500
@@ -700,16 +700,16 @@ def beat_trigram_perplexity(midi_file):
 
 
 def music_generate(length):
-    # sample notes
+    # sample writeup.txt
     unigramProbabilities = note_unigram_probability(midi_files)
     bigramTransitions, bigramTransitionProbabilities = note_bigram_probability(midi_files)
     trigramTransitions, trigramTransitionProbabilities = note_trigram_probability(midi_files)
     
-    # Initialize the sampled notes list with a starting note (e.g., a random note from the unigram model)
+    # Initialize the sampled writeup.txt list with a starting note (e.g., a random note from the unigram model)
     sampled_notes = [random.choice(list(unigramProbabilities.keys()))]  # Start with a random note
     
-    # Sample notes based on the trigram model
-    for i in range(2, length):  # Start from index 2 because we need at least 2 notes to form a trigram
+    # Sample writeup.txt based on the trigram model
+    for i in range(2, length):  # Start from index 2 because we need at least 2 writeup.txt to form a trigram
         prev_prev = sampled_notes[i - 2]
         prev = sampled_notes[i - 1]
         

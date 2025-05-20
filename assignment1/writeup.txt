@@ -1,0 +1,20 @@
+things implemented for all tasks:
+- overfit on small data first
+- LR scheduler and early stopping against validation set
+- batch parallelization using gpu for faster compute
+- feature parallelization faster compute
+
+task 1: Predict artists from music
+CNN - only used spec or mfcc, did not generalize well. Then tried custom MLP.
+MLP - used features that can only be found in midi files as well. this performed much better.
+TabNetClassifier - tried using online model based on my custom MLP, but this didn't perform as well.
+
+task 2: predict the next sequence T/F
+MLP - used a similar MLP classifier to get good accuracy, passing in features of both tracks.
+
+task 3:
+Resnet + CNN - Tried using spec / mfcc / q transform in 3 resnet branches with pooling layers to make a prediction, but this took too much compute
+Simple CNN - Tried a much simpler CNN model that took the same features, but this performed poorly
+MLP - Tried revising my MLP to have 10 outputs for prediciton, but this performed poorly
+MultioutputClassifier - tried using sklearns multioutput classifier to do one-vs-many prediction, but this was poor as well
+LGBM - eventually used a library model with the same features as passed in my custom MLP, and this performed much better
